@@ -14,6 +14,13 @@ class LoginPageState extends State<LoginPage> {
         hintText: 'you@example.com',
         icon: Icon(Icons.email),
       ),
+      validator: (String value) {
+        if (value.contains('@')) {
+          return null;
+        } else {
+          return 'Please enter a valid email';
+        }
+      },
     );
   }
 
@@ -28,6 +35,8 @@ class LoginPageState extends State<LoginPage> {
     );
   }
 
+  final formKey = GlobalKey<FormState>();
+
   Widget build(context) {
     return Scaffold(
       appBar: AppBar(
@@ -36,13 +45,16 @@ class LoginPageState extends State<LoginPage> {
       ),
       body: Container(
         margin: EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            emailField(),
-            passwordField(),
-            SizedBox(height: 10.0),
-            submitButton(),
-          ],
+        child: Form(
+          key: formKey,
+          child: Column(
+            children: [
+              emailField(),
+              passwordField(),
+              SizedBox(height: 10.0),
+              submitButton(),
+            ],
+          ),
         ),
       ),
     );
