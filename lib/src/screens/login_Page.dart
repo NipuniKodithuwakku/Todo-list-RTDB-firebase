@@ -69,7 +69,9 @@ class LoginPageState extends State<LoginPage> {
 
   submitButton() {
     return RaisedButton(
-      onPressed: () {},
+      onPressed: () {
+        print(formKey.currentState.validate());
+      },
       child: Text(
         'Login',
         style: TextStyle(
