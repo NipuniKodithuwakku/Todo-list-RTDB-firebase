@@ -32,6 +32,13 @@ class LoginPageState extends State<LoginPage> {
         hintText: 'password',
         icon: Icon(Icons.lock),
       ),
+      validator: (String value) {
+        if (value.length > 4) {
+          return null;
+        } else {
+          return 'password must be at least 4 characters';
+        }
+      },
     );
   }
 
