@@ -23,7 +23,12 @@ if (flutterVersionName == null) {
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
+//newly add -begin
+apply plugin: 'com.google.gms.google-services' 
+//newly add -end
+
 apply from: "$flutterRoot/packages/flutter_tools/gradle/flutter.gradle"
+
 
 android {
     compileSdkVersion 28
@@ -64,4 +69,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    //new
+    implementation 'com.google.firebase:firebase-analytics:17.2.2'
 }
+
+
+
+   
